@@ -1,0 +1,21 @@
+version: '3'
+services:
+  server:
+    build: .
+    environment:
+      TZ: "Europe/Madrid"
+      HTTP_PORT: "80"
+      GITHUB_TOKEN: ""
+    ports:
+      - "80:80/tcp"
+    restart: always
+    labels:
+      traefik.port: "80"
+      traefik.frontend.rule: "Host:aitorgf.com,www.aitorgf.com"
+      traefik.frontend.entryPoints: "http"
+    networks:
+      - webproxy
+networks:
+  webproxy:
+    external:
+      name: traefik_webproxy
