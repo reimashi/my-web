@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="es" ng-app="myWeb" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="es" ng-app="myWeb" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="es" ng-app="myWeb" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es" ng-app="myWeb" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aitor González Fernández</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="icon" href="favicon.ico">
+  <script defer src="app.bundle.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+
+<body>
+<div id="sidebar-wrapper">
+  <div id="about">
+    <div id="about-container">
+      <h1>
+        WEB DEVELOPER<br>
+        SOFTWARE ENGINEER<br>
+        <span class="highlighted">Entusiasta!!</span>
+      </h1>
+      <p id="about-resume">
+        ¡Hola! Mi nombre es <b>Aitor González</b>, ingeniero informático y desarrollador freelance. Échale un ojo a mi trabajo.
+      </p>
+      <ul id="about-links">
+        <li><a href="tel:0034619910374" target="_blank"><i class="fas fa-phone"></i></a></li>
+        <li><a href="https://goo.gl/J7ZzUx" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+        <li><a href="mailto:reimashi+web@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="https://goo.gl/WuvM2x" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://goo.gl/wjmBB2" target="_blank"><i class="fab fa-github-alt"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="content-wrapper">
+  <header>
+    <nav class="navbar-expand-md">
+      <div class="" id="navbarCollapse" ng-controller="MenuCtrl">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" ng-class="{active: $route.current.activeTab == 'software'}">
+            <a class="nav-link" href="#!/software">Software</a>
+          </li>
+          <li class="nav-item" ng-class="{active: $route.current.activeTab == 'portfolio'}">
+            <a class="nav-link" href="#!/portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item" ng-class="{active: $route.current.activeTab == 'curriculum'}">
+            <a class="nav-link" href="#!/curriculum">Curriculum</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="view" ng-view>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<div id="page-software" class="page">
+    <div class="head-image">
+        <img src="images/head_software.min.jpeg" />
+    </div>
+    <div>
+        <div class="alert alert-secondary text-center" ng-if="loading">
+            <i class="fas fa-spinner"></i> Cargando...
+        </div>
+        <div class="alert alert-danger text-center" role="alert" ng-if="error">
+            <i class="fas fa-exclamation-circle"></i> Ha ocurrido un error al cargar los proyectos.
+        </div>
+    </div>
+    <section class="repo-list row ng-cloak">
+        <div class="project col-xl-6 col-lg-12" ng-repeat="repo in repositories">
+            <h2><a href="{{repo.url}}" target="_blank" title="Enlace a la web del proyecto">{{repo.name}}</a></h2>
+            <p class="description">{{repo.description}}</p>
+            <div class="plinks">
+                <span class="plink" ng-if="repo.url"><a href="{{repo.url}}" title="Web del proyecto"><i class="fas fa-link"></i></a></span>
+                <span class="plink" ng-if="repo.url_wiki"><a href="{{repo.url_wiki}}" title="Wiki del proyecto"><i class="fab fa-wikipedia-w"></i></a></span>
+                <span class="plink" ng-if="repo.url_bug"><a href="{{repo.url_bug}}" title="Wiki del proyecto"><i class="fas fa-bug"></i></a></span>
+                <span class="pupdate"><i class="fas fa-clock"></i> Actualizado: {{repo.updated | elapsed}}</span>
+            </div>
+        </div>
+    </section>
+</div>

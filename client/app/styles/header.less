@@ -1,0 +1,28 @@
+@import "definitions";
+
+#content-wrapper {
+  header {
+    background-color: @color2;
+    z-index: 1;
+  }
+
+  .nav-item {
+    &.active {
+      background-color: darken(@color2, 3%);
+    }
+
+    &:hover {
+      background-color: lighten(@color2, 10%);
+    }
+
+    a.nav-link {
+      outline: 0;
+      color: #fff;
+      padding: .8rem 1.5rem;
+
+      &:hover, &:active, &:focus {
+        outline: 0;
+      }
+    }
+  }
+}

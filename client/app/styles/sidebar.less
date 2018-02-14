@@ -1,0 +1,121 @@
+@import "definitions";
+@import url(https://fonts.googleapis.com/css?family=Concert+One);
+
+#content-wrapper {
+  @media @md {
+    margin-left: 35%;
+  }
+
+  @media @lg, @xl {
+    margin-left: 25%;
+  }
+
+  header {
+    @media @md, @lg, @xl {
+      top: 0;
+      position: fixed;
+      width: 65%;
+    }
+
+    @media @lg, @xl {
+      width: 75%;
+    }
+  }
+
+  .view {
+    @media @md, @lg, @xl {
+      padding-top: 48px;
+    }
+  }
+}
+
+#sidebar-wrapper {
+  display: block;
+  color: white;
+  background-color: @color1;
+
+  @media @md, @lg, @xl {
+    position: fixed;
+    top: 0;
+    width: 35%;
+    min-width: 180px;
+    height: 100%;
+  }
+
+  @media @lg, @xl {
+    width: 25%;
+  }
+
+  #about {
+    display: flex;
+    width: 100%;
+
+    @media @md, @lg, @xl {
+      position: absolute;
+      bottom: 15%;
+    }
+
+    #about-container {
+      margin: 15px 18px;
+
+      h1 {
+        display: none;
+        margin: 0 0 36px;
+
+        @media @md, @lg, @xl {
+          width: 100%;
+          display: inline-block;
+          text-align: right;
+        }
+
+        font-family: 'Concert One', cursive;
+        font-weight: lighter;
+        font-size: 1.4em;
+
+        span.highlighted {
+          font-size: 1.5em;
+          color: @color4;
+        }
+      }
+
+      p#about-resume {
+        text-align: center;
+
+        @media @md, @lg, @xl {
+          text-align: right;
+        }
+
+        font-size: 0.9em;
+        margin: 10px auto 20px;
+        color: #eee;
+      }
+
+      ul#about-links {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+        @media @md, @lg, @xl {
+          text-align: right;
+          margin-bottom: 1rem;
+        }
+
+        list-style-type: none;
+
+        li {
+          margin: 0px 4px;
+          display: inline-block;
+
+          a {
+            color: #fff;
+            font-size: 1.25em;
+
+            @media @md, @lg, @xl {
+              font-size: 1.75em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

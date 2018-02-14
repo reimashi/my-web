@@ -1,0 +1,17 @@
+@color1: rgba(44, 54, 94, 1);
+@color2: rgba(72, 77, 109, 1);
+@color3: rgba(98, 121, 184, 1);
+@color4: rgba(75, 143, 140, 1);
+@color5: rgba(114, 169, 143, 1);
+
+@phoneJump: 720px; @phoneJumpStep: @phoneJump - 1px;
+@tabletJump: 960px; @tabletJumpStep: @tabletJump - 1px;
+
+@xs: ~"only screen and (max-width: 575.98px)";
+@sm: ~"only screen and (min-width: 576px) and (max-width: 767.98px)";
+@md: ~"only screen and (min-width: 768px) and (max-width: 991.98px)";
+@lg: ~"only screen and (min-width: 992px) and (max-width: 1199.98px)";
+@xl: ~"only screen and (min-width: 1200px)";
+
+@desktop: ~"only screen and (min-width: @{tabletJump})";
+@tablet:  ~"only screen and (min-width: @{phoneJump}) and (max-width: @{tabletJumpStep})";
