@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:crossroad/crossroad.dart';
 import 'package:github/server.dart';
-
-const GITHUB_API = "7655dfe6405ab028a3a33773c761f376989e2bc3";
+import 'configuration.dart';
 
 class GithubController {
   final Router router;
@@ -14,8 +13,8 @@ class GithubController {
 
   static Future<Response> getRepos(
       Request req, Map<String, Object> params) async {
-    var github =
-        createGitHubClient(auth: new Authentication.withToken(GITHUB_API));
+    var github = createGitHubClient(
+        auth: new Authentication.withToken(Configuration["GITHUB_TOKEN"]));
     Map<String, Map> myrepos = {};
 
     await for (Repository repo in github.repositories

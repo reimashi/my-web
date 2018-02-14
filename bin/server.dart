@@ -4,14 +4,14 @@ import 'package:args/args.dart';
 import 'package:shelf/shelf_io.dart' as io;
 import 'package:crossroad/crossroad.dart';
 import 'package:shelf_static/shelf_static.dart';
-import 'shelf_cors.dart';
 
+import 'configuration.dart';
 import 'github_controller.dart';
 import 'markdown_controller.dart';
 
 void main(List<String> args) {
   var parser = new ArgParser()
-    ..addOption('port', abbr: 'p', defaultsTo: '8081');
+    ..addOption('port', abbr: 'p', defaultsTo: Configuration["HTTP_PORT"].toString());
 
   var result = parser.parse(args);
 
@@ -19,8 +19,6 @@ void main(List<String> args) {
     stdout.writeln('Could not parse port value "$val" into a number.');
     exit(1);
   });
-
-  //Crossroad.addMiddleware(corsMiddleware());
 
   new GithubController(Crossroad.route("/github"));
   new MarkdownController(Crossroad.route("/docs"));
