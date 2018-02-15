@@ -1,0 +1,66 @@
+<div id="page-curriculum" class="page">
+  <div class="head-image">
+    <img src="images/head_curriculum.min.jpg" alt="Curriculum background image" title="La tierra desde la Estación Espacial Internacional" />
+  </div>
+  <div id="my-head">
+    <img class="float-left" src="images/me.jpg" title="Mi careto"/>
+    <div class="float-left clearfix name">Aitor González Fernández</div>
+  </div>
+  <section class="curriculum-list row ng-cloak">
+    <div class="card-columns card-columns-curriculum">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><span class="card-icon"><i class="fas fa-briefcase"></i></span> Experiencia</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" ng-repeat="job in experience | orderBy: 'from'">
+            {{job.job}}
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><span class="card-icon"><i class="fas fa-graduation-cap"></i></span> Estudos y titulaciones</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" ng-repeat="study in qualifications | orderBy: 'from'">
+            {{study.title}}
+          </li>
+          <li class="list-group-item" ng-repeat="certification in certifications | orderBy: 'from'">
+            {{certification.title}}
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><span class="card-icon"><i class="fas fa-language"></i></span> Idiomas</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" ng-repeat="language in languages">
+            {{language.name}}
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><span class="card-icon"><i class="fas fa-gamepad"></i></span> Hobbies</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" ng-repeat="hobby in hobbies">
+            {{hobby.name}}
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><span class="card-icon"><i class="fas fa-hashtag"></i></span> Aptitudes</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <span class="badge badge-primary" ng-repeat="aptitude in aptitudes">{{aptitude}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

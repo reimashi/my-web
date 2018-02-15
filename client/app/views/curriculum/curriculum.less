@@ -1,0 +1,93 @@
+@import "../../styles/definitions";
+@import "../../styles/mixins";
+
+#page-curriculum {
+  #my-head {
+    margin: -4.5rem 35%;
+    width: 30%;
+    position: absolute;
+    background: rgba(182, 182, 182, 0.67);
+    border-radius: 5px;
+
+    @media @sm, @md, @lg, @xl {
+      width: auto;
+      margin: -4.5rem 2rem;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 5px;
+
+      @media @sm, @md, @lg, @xl {
+        width: 5rem;
+        display: inline-block;
+        border-radius: 0;
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+      }
+    }
+
+    .name {
+      display: none;
+      line-height: 5rem;
+      margin: 0rem 2rem;
+      font-size: 1rem;
+
+      @media @sm, @md, @lg, @xl {
+        display: inline-block;
+      }
+
+      @media @md {
+        font-size: 1.2rem;
+      }
+
+      @media @lg {
+        font-size: 1.5rem;
+      }
+
+      @media @xl {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .curriculum-list {
+    margin: 6rem 1rem;
+    padding: 0;
+
+    @media @sm, @md, @lg, @xl {
+      margin: 1.5rem 1rem;
+    }
+
+    .card {
+      .card-header {
+        background-color: lighten(rgba(182, 182, 182, 0.67), 15%);
+
+        .card-title {
+          margin-bottom: 0;
+
+          .card-icon {
+            margin-right: 1rem;
+          }
+        }
+      }
+      .card-body {
+        .card-text {
+          .badge {
+            margin: 0.2rem;
+            padding: 0.4rem;
+            background-color: @color3;
+          }
+        }
+      }
+    }
+  }
+
+  .card-columns-curriculum {
+    .column-count(1);
+
+    @media @xl {
+      .column-count(2);
+    }
+  }
+}

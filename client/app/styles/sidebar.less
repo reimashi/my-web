@@ -110,6 +110,17 @@
           a {
             color: #fff;
             font-size: 1.25em;
+            outline: none;
+
+            &:hover, &:visited, &:focus {
+              outline: none;
+            }
+
+            &:focus {
+              svg {
+                .filter-drop-shadow(0px, 0px, 5px, #ddd);
+              }
+            }
 
             @media @md, @lg, @xl {
               font-size: 1.75em;

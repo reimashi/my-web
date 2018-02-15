@@ -2,3 +2,9 @@
   -webkit-filter: drop-shadow(@x @y @blur @color);
   filter: drop-shadow(@x @y @blur @color);
 }
+
+.column-count(@count) {
+  -moz-column-count: @count;
+  -webkit-column-count: @count;
+  column-count: @count;
+}
