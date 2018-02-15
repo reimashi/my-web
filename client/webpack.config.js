@@ -1,4 +1,4 @@
-const DEBUG = false;
+const DEBUG = true;
 
 const webpack = require("webpack");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');

@@ -35,6 +35,21 @@
   color: white;
   background-color: @color1;
 
+  #sidebar-background {
+    width: 100%;
+    height: 150px;
+    color: @color2;
+    background-color: @color1;
+
+    @media @md, @lg, @xl {
+      height: 100%;
+    }
+
+    canvas {
+      height: 100%;
+    }
+  }
+
   @media @md, @lg, @xl {
     position: fixed;
     top: 0;
@@ -48,11 +63,12 @@
   }
 
   #about {
-    display: flex;
-    width: 100%;
+    top: 5px;
+    position: absolute;
 
     @media @md, @lg, @xl {
       position: absolute;
+      top: auto;
       bottom: 15%;
     }
 

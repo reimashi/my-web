@@ -7,6 +7,7 @@ import 'angular-route';
 import "./views/software/software";
 import "./views/portfolio/portfolio";
 import "./views/curriculum/curriculum";
+import "./views/sidebar/sidebar-background";
 
 // Declare app level module which depends on views, and components
 angular.module('myWeb', [
