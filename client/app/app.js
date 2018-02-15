@@ -1,8 +1,8 @@
 'use strict';
 
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import "../node_modules/angular/angular";
-import "../node_modules/angular-route/angular-route";
+import 'bootstrap';
+import 'angular';
+import 'angular-route';
 
 import "./views/software/software";
 import "./views/portfolio/portfolio";

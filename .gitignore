@@ -14,4 +14,4 @@ doc/api/
 
 # Autobuild
 *.bundle.js
-**/styles/**/*.css
+client/**/*.css

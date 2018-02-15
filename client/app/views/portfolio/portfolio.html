@@ -2,4 +2,51 @@
   <div class="head-image">
     <img src="images/head_portfolio.min.jpg" alt="Portfolio background image" title="Station Gallery, Canada" />
   </div>
+  <section class="portfolio-list row ng-cloak">
+    <div class="portfolio col-xl-4 col-lg-6 col-md-12" ng-repeat="web in portfolio">
+        <div class="wg-monitor">
+            <div class="screen monitor">
+                <div class="content">
+                    <a class="thumbnail" ng-click="openGallery($index)" title="Más información" data-toggle="modal" data-target="#exampleModal">
+                        <img src="images/{{web.image}}">
+                    </a>
+                </div>
+                <div class="base">
+                    <div class="foot top"></div>
+                    <div class="foot bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{gallery.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body row">
+                    <div class="modal-col image-col col-sm-12 col-md-8">
+                        <img src="images/{{gallery.image}}"/>
+                    </div>
+                    <div class="modal-col info-col col-sm-12 col-md-4">
+                        <div class="info-data description">{{gallery.description}}</div>
+                        <div class="info-data" ng-if="gallery.company"><span class="icon"><i class="fas fa-building"></i></span> {{gallery.company}}</div>
+                        <div class="info-data" ng-if="gallery.place"><span class="icon"><i class="fas fa-map-signs"></i></span> {{gallery.place}}</div>
+                        <div class="info-data" ng-if="gallery.year"><span class="icon"><i class="fas fa-calendar-alt"></i></span> {{gallery.year}}</div>
+                        <div class="info-data url" ng-if="gallery.url"><span class="icon"><i class="fas fa-link"></i></span> <a href="{{gallery.url}}" target="_blank">Visitar web</a></div>
+                        <div class="info-data url no-url" ng-if="!gallery.url"><span class="icon"><i class="fas fa-link"></i></span> (La web ya no está online)</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="backGallery()"><i class="fas fa-chevron-left"></i></button>
+                    <button type="button" class="btn btn-primary" ng-click="nextGallery()"><i class="fas fa-chevron-right"></i></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

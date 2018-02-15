@@ -1,0 +1,61 @@
+@import '../../styles/definitions';
+
+#page-portfolio {
+  .portfolio-list {
+    margin: 0;
+
+    .portfolio {
+      overflow: hidden;
+
+      a.thumbnail {
+        cursor: zoom-in;
+      }
+    }
+  }
+
+  .modal-dialog {
+    @media @md {
+      max-width: 680px;
+    }
+
+    @media @lg {
+      max-width: 760px;
+    }
+
+    @media @xl {
+      max-width: 900px;
+    }
+
+    .modal-body {
+      margin: 0;
+      padding: 0;
+
+      .modal-col {
+        margin: 0;
+        padding: 0;
+      }
+
+      .info-col {
+        background-color: #ddd;
+        font-size: 0.8em;
+
+        .info-data {
+          margin: 8px 12px;
+
+          &.description {
+            margin: 32px 12px;
+          }
+
+          .icon {
+            margin: 0 6px;
+          }
+
+          &.no-url {
+            color: #ff5342;
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+  }
+}
