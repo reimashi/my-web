@@ -1,7 +1,7 @@
 version: '3'
 services:
   server:
-    build: .
+    image: reimashi/my-web:latest
     environment:
       TZ: "Europe/Madrid"
       HTTP_PORT: "8080"
