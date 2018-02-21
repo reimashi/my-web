@@ -1,7 +1,4 @@
-const DEBUG = true;
-
 const webpack = require("webpack");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: "./app/app.js",
@@ -14,7 +11,5 @@ module.exports = {
             'jQuery': "jquery",
             'Popper': 'popper.js'
         })
-    ].concat(DEBUG ? [] : [
-        new UglifyJsPlugin()
-    ])
+    ]
 };
