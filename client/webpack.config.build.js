@@ -1,12 +1,16 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-let stable = require("./webpack.config");
+const path = require('path');
 
-stable.output = {
-    filename: '../build/static/app.bundle.js'
-}
+module.exports = env => {
+    let stable = require("./webpack.config");
 
-stable.plugins = stable.plugins.concat([
-    new UglifyJsPlugin()
-]);
+    stable.output = {
+        filename: path.relative("./", path.join(env["BuildDir"], 'static/app.bundle.js'))
+    };
 
-module.exports = stable;
+    stable.plugins = stable.plugins.concat([
+        new UglifyJsPlugin()
+    ]);
+
+    return stable;
+};
