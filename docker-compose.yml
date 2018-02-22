@@ -16,7 +16,11 @@ services:
       traefik.docker.network: "intranet"
     networks:
       - intranet
+      - internet
 networks:
   intranet:
     external:
       name: intranet
+  internet:
+    external:
+      name: internet

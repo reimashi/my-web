@@ -43,6 +43,8 @@ RUN find /dist
 # Deploy runtime
 FROM alpine
 
+RUN apk --no-cache add ca-certificates && update-ca-certificates
+
 WORKDIR /static
 COPY --from=client-builder /dist .
 
