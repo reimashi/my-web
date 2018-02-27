@@ -9,6 +9,7 @@ import (
 	"golang.org/x/oauth2"
 	"os"
 	"encoding/json"
+	"time"
 )
 
 func getMyRepositories(w http.ResponseWriter, r *http.Request) {
@@ -39,7 +40,7 @@ func getMyRepositories(w http.ResponseWriter, r *http.Request) {
 		repoInfo := map[string]string{
 			"name": *org.Name,
 			"description": *org.Description,
-			"updated": org.UpdatedAt.String(),
+			"updated": org.UpdatedAt.UTC().Format(time.RFC3339),
 			"url": *org.URL,
 		}
 
