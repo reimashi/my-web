@@ -28,6 +28,6 @@
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app --cors",
     "pretest": "npm install",
-    "webpack-dev": "webpack --watch"
+    "webpack-dev": "webpack-cli --watch"
   }
 }

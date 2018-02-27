@@ -25,7 +25,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     apt-get update && \
     apt-get install --no-install-recommends yarn -y
 
-RUN yarn global add webpack less
+RUN yarn global add webpack webpack-cli less
 
 WORKDIR /app
 COPY ./client .
@@ -35,7 +35,7 @@ RUN yarn
 RUN mkdir -p /dist
 
 RUN rsync -av --include='*.html' --include='*.jpg' --include='*.jpeg' --include='*.png' --include='*.gif' --include='*.ico' --include='*.md' -f 'hide,! */' ./app/ /dist
-RUN webpack --env.BuildDir=/dist --config webpack.config.build.js
+RUN webpack-cli --env.BuildDir=/dist --config webpack.config.build.js
 RUN lessc /app/app/styles/main.less /dist/styles/main.css
 
 RUN find /dist

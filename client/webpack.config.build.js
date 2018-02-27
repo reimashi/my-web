@@ -4,7 +4,9 @@ const path = require('path');
 module.exports = env => {
     let stable = require("./webpack.config");
 
+    stable.mode = "production";
     stable.output = {
+        path: __dirname,
         filename: path.relative("./", path.join(env["BuildDir"], 'app.bundle.js'))
     };
 
