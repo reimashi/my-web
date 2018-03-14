@@ -1,5 +1,5 @@
 # Build server
-FROM golang:1.9.4 as server-builder
+FROM golang:1.10 as server-builder
 
 RUN apt-get update && \
     apt-get install git
@@ -13,6 +13,7 @@ RUN mkdir -p /build && \
     CGO_ENABLED=0 GOOS=linux go build -ldflags "-extldflags -static" -installsuffix cgo -a -o /build/server .
 
 RUN chmod +x /build/server
+
 
 # Build client
 FROM node:latest as client-builder
@@ -39,6 +40,7 @@ RUN webpack-cli --env.BuildDir=/dist --config webpack.config.build.js
 RUN lessc /app/app/styles/main.less /dist/styles/main.css
 
 RUN find /dist
+
 
 # Deploy runtime
 FROM alpine
