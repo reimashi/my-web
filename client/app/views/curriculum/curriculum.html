@@ -13,8 +13,15 @@
           <h5 class="card-title"><span class="card-icon"><i class="fas fa-briefcase"></i></span> Experiencia</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" ng-repeat="job in experience | orderBy: 'from'">
-            {{job.job}}
+          <li class="list-group-item" ng-repeat="job in experience | orderBy: '-to'">
+            <h6 class="d-inline-block">{{job.job}}</h6>
+            <div class="float-md-right light-text">
+              {{job.from | date: 'MM/yyyy'}} - {{job.to | date: 'MM/yyyy'}}
+            </div>
+            <div>
+              <span ng-if="!job.url" class="light-text">{{job.company}}</span>
+              <span ng-if="job.url" class="light-text"><a href="{{job.url}}" target="_blank">{{job.company}}</a></span>
+            </div>
           </li>
         </ul>
       </div>
@@ -23,8 +30,16 @@
           <h5 class="card-title"><span class="card-icon"><i class="fas fa-graduation-cap"></i></span> Estudos y titulaciones</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" ng-repeat="study in qualifications | orderBy: 'from'">
-            {{study.title}}
+          <li class="list-group-item" ng-repeat="study in qualifications | orderBy: '-to'">
+
+            <h6 class="d-inline-block">{{study.title}}</h6>
+            <div class="float-md-right light-text">
+              {{study.from | date: 'MM/yyyy'}} - {{study.to | date: 'MM/yyyy'}}
+            </div>
+            <div>
+              <span ng-if="!study.url" class="light-text">{{study.school}}</span>
+              <span ng-if="study.url" class="light-text"><a href="{{study.url}}" target="_blank">{{study.school}}</a></span>
+            </div>
           </li>
           <li class="list-group-item" ng-repeat="certification in certifications | orderBy: 'from'">
             {{certification.title}}
@@ -37,17 +52,13 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item" ng-repeat="language in languages">
-            {{language.name}}
-          </li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title"><span class="card-icon"><i class="fas fa-gamepad"></i></span> Hobbies</h5>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" ng-repeat="hobby in hobbies">
-            {{hobby.name}}
+            <h4 class="d-inline-block">{{language.name}}</h4>
+            <span class="float-right">
+              <span class="badge badge-info" ng-repeat="cert in language.certifications">{{cert}}</span>
+            </span>
+            <div class="progress mt-3">
+              <div class="progress-bar bg-primary" role="progressbar" ng-style="{ 'width': language.level + '%' }" aria-valuenow="{{language.level}}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
           </li>
         </ul>
       </div>
@@ -60,6 +71,16 @@
             <span class="badge badge-primary" ng-repeat="aptitude in aptitudes">{{aptitude}}</span>
           </p>
         </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-title"><span class="card-icon"><i class="fas fa-gamepad"></i></span> Hobbies</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" ng-repeat="hobby in hobbies">
+            {{hobby.name}}
+          </li>
+        </ul>
       </div>
     </div>
   </section>

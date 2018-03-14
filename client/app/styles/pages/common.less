@@ -1,4 +1,5 @@
 @import '../animations';
+@import '../definitions';
 
 div.head-image {
   display:block;
@@ -18,4 +19,20 @@ div.alert {
 
 .fa-spinner {
   .spin(2000ms);
+}
+
+.badge-primary {
+  background-color: @color3;
+}
+
+.badge-info {
+  background-color: lighten(@color3, 20);
+}
+
+.progress .progress-bar.bg-primary {
+  background-color: @color3 !important;
+}
+
+.progress .progress-bar.bg-secondary {
+  background-color: @color2 !important;
 }
