@@ -11,7 +11,7 @@
         </div>
     </div>
     <section class="repo-list row ng-cloak">
-        <div class="project col-xl-6 col-lg-12" ng-repeat="repo in repositories">
+        <div class="project col-xl-6 col-lg-12" ng-repeat="repo in repositories | orderBy: '-updated'">
             <h2><a href="{{repo.url}}" target="_blank" title="Enlace a la web del proyecto">{{repo.name}}</a></h2>
             <p class="description">{{repo.description}}</p>
             <div class="plinks">
