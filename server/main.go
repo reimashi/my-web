@@ -10,6 +10,7 @@ import (
 	"os"
 	"encoding/json"
 	"time"
+	"strings"
 )
 
 func getMyRepositories(w http.ResponseWriter, r *http.Request) {
@@ -28,7 +29,10 @@ func getMyRepositories(w http.ResponseWriter, r *http.Request) {
 
 	client := github.NewClient(tc)
 
-	orgs, _, err := client.Repositories.List(ctx, "reimashi", nil)
+	options := new(github.RepositoryListOptions)
+	options.Visibility = "all"
+
+	orgs, _, err := client.Repositories.List(ctx, "reimashi", options)
 
 	if err != nil {
 		http.Error(w, "Github api error", 500)
@@ -37,19 +41,20 @@ func getMyRepositories(w http.ResponseWriter, r *http.Request) {
 
 	var responseList []map[string]string
 	for _, org := range orgs {
+		baseUrl := strings.Replace(*org.URL, "api.github.com/repos/", "github.com/", -1)
 		repoInfo := map[string]string{
 			"name": *org.Name,
 			"description": *org.Description,
 			"updated": org.UpdatedAt.UTC().Format(time.RFC3339),
-			"url": *org.URL,
+			"url": baseUrl,
 		}
 
 		if *org.HasWiki {
-			repoInfo["url_wiki"] = *org.URL + "/wiki"
+			repoInfo["url_wiki"] = baseUrl + "/wiki"
 		}
 
 		if *org.HasIssues {
-			repoInfo["url_bug"] = *org.URL + "/wiki"
+			repoInfo["url_bug"] = baseUrl + "/issues"
 		}
 
 		responseList = append(responseList, repoInfo);
