@@ -14,7 +14,7 @@ angular.module('myApp.view_curriculum', ['ngRoute'])
     $scope.experience = [
         { from: Date.parse("2012/01/01"), to: Date.parse("2012/07/01"), company: "Shoppu Informática, tienda de informática", job: "Socio fundador, dependiente, desarrollador web" },
         { from: Date.parse("2011/02/01"), to: Date.parse("2011/09/01"), company: "Asociación de Mulleres Rurais de Galicia", job: "Profesor de iniciación a la informática" },
-        { from: Date.parse("2011/03/01"), to: Date.parse("2011/06/01"), company: "Universidad de Vigo", job: "Becario de administrador de sistemas.", url: "http://www.uvigo.es" },
+        { from: Date.parse("2011/03/01"), to: Date.parse("2011/06/01"), company: "Universidad de Vigo", job: "Becario en administración de sistemas", url: "http://www.uvigo.es" },
         { from: Date.parse("2015/01/01"), to: Date.parse("2015/05/01"), company: "OpenHost S.L.", job: "Desarrollador web (PHP, Symphony)", url: "http://openhost.es" },
         { from: Date.parse("2015/11/01"), to: Date.parse("2016/06/01"), company: "Ziblec Software S.L.", job: "Desarrollador web (PHP, NodeJS)", url: "http://ziblec.com" },
         { from: Date.parse("2017/09/01"), to: Date.now(), company: "Autónomo", job: "Desarrollador web (PHP, NodeJS, Dart)", url: "http://aitorgf.com" },
