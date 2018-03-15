@@ -17,6 +17,14 @@ services:
     networks:
       - intranet
       - internet
+  watchtower:
+    image: v2tec/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      REPO_USER: "reimashi"
+      REPO_PASS: ""
+    command: --interval 300
 networks:
   intranet:
     external:
