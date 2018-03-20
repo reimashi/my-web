@@ -87,7 +87,6 @@ func main() {
 
 	router.HandleFunc("/github", getMyRepositories)
 
-	//fs := http.FileServer(http.Dir("static"))
 	router.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir(spath))))
 
 	http.Handle("/", router)
