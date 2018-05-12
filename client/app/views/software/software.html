@@ -11,14 +11,15 @@
         </div>
     </div>
     <section class="repo-list row ng-cloak">
-        <div class="project col-xl-6 col-lg-12" ng-repeat="repo in repositories | orderBy: '-updated'">
-            <h2><a href="{{repo.url}}" target="_blank" title="Enlace a la web del proyecto">{{repo.name}}</a></h2>
-            <p class="description">{{repo.description}}</p>
+        <div class="project col-xl-6 col-lg-12" ng-repeat="repo in repositories | orderBy: '-Updated'">
+            <h2><a href="{{repo.Urls.main}}" target="_blank" title="Enlace a la web del proyecto">{{repo.Name}}</a></h2>
+            <p class="description">{{repo.Description}}</p>
             <div class="plinks">
-                <span class="plink" ng-if="repo.url"><a href="{{repo.url}}" title="Web del proyecto"><i class="fas fa-link"></i></a></span>
-                <span class="plink" ng-if="repo.url_wiki"><a href="{{repo.url_wiki}}" title="Wiki del proyecto"><i class="fab fa-wikipedia-w"></i></a></span>
-                <span class="plink" ng-if="repo.url_bug"><a href="{{repo.url_bug}}" title="Wiki del proyecto"><i class="fas fa-bug"></i></a></span>
-                <span class="pupdate"><i class="fas fa-clock"></i> Actualizado: {{repo.updated | elapsed}}</span>
+                <span class="plink" ng-if="repo.Urls.main"><a href="{{repo.Urls.main}}" title="Web del proyecto"><i class="fas fa-link"></i></a></span>
+                <span class="plink" ng-if="repo.Urls.wiki"><a href="{{repo.Urls.wiki}}" title="Wiki del proyecto"><i class="fab fa-wikipedia-w"></i></a></span>
+                <span class="plink" ng-if="repo.Urls.issues"><a href="{{repo.Urls.issues}}" title="Wiki del proyecto"><i class="fas fa-bug"></i></a></span>
+                <span class="planguage" title="Lenguage de programación principal: {{repo.Language}}"><i ng-if="repo.devicon" ng-class="repo.devicon"></i> <span class="name">{{repo.Language}}</span></span>
+                <span class="pupdate"><i class="fas fa-clock"></i> Actualizado: {{repo.Updated | elapsed}}</span>
             </div>
         </div>
     </section>

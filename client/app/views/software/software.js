@@ -20,12 +20,42 @@ angular.module('myApp.view_software', ['ngRoute'])
     }
     else {
         $scope.loading = true;
-        $http.get("/github/")
+        $http.get("/repos/")
             .then(function(repos) {
-                $scope.repositories = repos.data;
+                for (var i in repos.data.Repositories) {
+                    switch (String(repos.data.Repositories[i].Language).toLowerCase()) {
+                        case "c": repos.data.Repositories[i].devicon = "devicon-c-plain"; break;
+                        case "c++": repos.data.Repositories[i].devicon = "devicon-cplusplus-plain"; break;
+                        case "php": repos.data.Repositories[i].devicon = "devicon-php-plain"; break;
+                        case "javascript": repos.data.Repositories[i].devicon = "devicon-javascript-plain"; break;
+                        case "bison": break;
+                        case "cuda": break;
+                        case "c#": repos.data.Repositories[i].devicon = "devicon-csharp-plain"; break;
+                        case "java": repos.data.Repositories[i].devicon = "devicon-java-plain"; break;
+                        case "go": repos.data.Repositories[i].devicon = "devicon-go-plain"; break;
+                        case "dart": break;
+                        case "shell": break;
+                        case "typescript": repos.data.Repositories[i].devicon = "devicon-typescript-plain"; break;
+                        case "python": repos.data.Repositories[i].devicon = "devicon-python-plain"; break;
+                        case "kotlin": break;
+                        case "swift": repos.data.Repositories[i].devicon = "devicon-swift-plain"; break;
+                        case "rust": break;
+                        case "objectivec": break;
+                        case "assembly": break;
+                        case "ruby": repos.data.Repositories[i].devicon = "devicon-ruby-plain"; break;
+                        case "r": break;
+                        case "perl": break;
+                        case "matlab": break;
+                        case "scala": break;
+                        case "groovy": break;
+                        case "coffescript": repos.data.Repositories[i].devicon = "devicon-coffeescript-plain"; break;
+                        case "lua": break;
+                    }
+                }
+                $scope.repositories = repos.data.Repositories;
                 $rootScope.repoCache = $scope.repositories;
                 $scope.loading = false;
-                $scope.error = false;
+                $scope.error = repos.data.Errors;
             })
             .catch(function(repos) {
                 $scope.loading = false;
