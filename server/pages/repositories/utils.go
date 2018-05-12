@@ -48,6 +48,7 @@ func getGithubRepos() ([]repository, error) {
 			Urls: map[string]string{
 				"main": baseUrl,
 			},
+			Host: "Github",
 		}
 
 		if org.GetHasWiki() {

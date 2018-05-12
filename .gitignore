@@ -2,12 +2,12 @@
 .packages
 .pub/
 build/
+/dist
+
 # Remove the following pattern if you wish to check in your lock file
 pubspec.lock
 package-lock.json
-
-# Directory created by dartdoc
-doc/api/
+yarn.lock
 
 # IDE
 .idea

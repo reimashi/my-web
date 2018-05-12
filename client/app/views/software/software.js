@@ -51,6 +51,11 @@ angular.module('myApp.view_software', ['ngRoute'])
                         case "coffescript": repos.data.Repositories[i].devicon = "devicon-coffeescript-plain"; break;
                         case "lua": break;
                     }
+                    switch (String(repos.data.Repositories[i].Host).toLowerCase()) {
+                        case "github": repos.data.Repositories[i].HostIcon = "devicon-github-plain"; break;
+                        case "gitlab": repos.data.Repositories[i].HostIcon = "devicon-gitlab-plain"; break;
+                        case "bitbucket": repos.data.Repositories[i].HostIcon = "devicon-bitbucket-plain"; break;
+                    }
                 }
                 $scope.repositories = repos.data.Repositories;
                 $rootScope.repoCache = $scope.repositories;

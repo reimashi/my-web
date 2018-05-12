@@ -12,7 +12,11 @@
     </div>
     <section class="repo-list row ng-cloak">
         <div class="project col-xl-6 col-lg-12" ng-repeat="repo in repositories | orderBy: '-Updated'">
-            <h2><a href="{{repo.Urls.main}}" target="_blank" title="Enlace a la web del proyecto">{{repo.Name}}</a></h2>
+            <h2>
+                <a href="{{repo.Urls.main}}" target="_blank" title="Enlace a la web del proyecto">
+                    <i class="phosticon" ng-if="repo.HostIcon" ng-class="repo.HostIcon" title="Alojado en: {{repo.Host}}"></i> {{repo.Name}}
+                </a>
+            </h2>
             <p class="description">{{repo.Description}}</p>
             <div class="plinks">
                 <span class="plink" ng-if="repo.Urls.main"><a href="{{repo.Urls.main}}" title="Web del proyecto"><i class="fas fa-link"></i></a></span>
