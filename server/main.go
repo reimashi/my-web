@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"github.com/gorilla/mux"
 	"path/filepath"
-	"github.com/reimashi/my-web/server/pages/repositories"
+	"github.com/tokkenno/my-web/server/pages/repositories"
 )
 
 func main() {

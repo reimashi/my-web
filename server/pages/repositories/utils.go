@@ -30,7 +30,7 @@ func getGithubRepos() ([]repository, error) {
 	options.Visibility = "all"
 	options.PerPage = 200
 
-	orgs, _, err := client.Repositories.List(ctx, "reimashi", options)
+	orgs, _, err := client.Repositories.List(ctx, "tokkenno", options)
 
 	if err != nil {
 		log.Print("The request to github API has failed")
